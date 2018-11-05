@@ -1,0 +1,20 @@
+:root {
+  --bg-color: white;
+  --txt-color: #373737;
+  --theme-color: #B5EAD5;
+  --nav-color: #F1F7ED;
+}
+
+body {
+}
+
+h1 {
+  font-family: "Charter", serif;
+  color: var(--txt-color);
+}
+
+h2 {
+  font-family: "Charter", serif;
+  font-weight: normal;
+  color: var(--txt-color);
+}
