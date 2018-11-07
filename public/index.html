@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bonsai</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/styles/master.css">
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
@@ -15,33 +17,74 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   </head>
   <body>
-    <h1>bonsai</h1>
-    <h2>My Goals</h2>
-    <h2>My Weekly Progress</h2>
+    <ul class="navbar">
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
 
+    <img src="assets/logo_wide.svg" alt="logo" height="100">
+    <h1>My Goals</h1>
+    <h3>Weekly Goal</h3>
+
+    <p><b><i lang="ja-Latn" title="Japanese-language transliteration">Bonsai</i></b> (<a href="/wiki/Japanese_language"
+        title="Japanese language">Japanese</a>: <span lang="ja">盆栽</span>, <small><a href="/wiki/Literal_translation" title="Literal translation">lit.</a>&nbsp;</small>'tray
+      planting', <span class="unicode haudio"><span class="fn"><span style="white-space:nowrap"><a href="/wiki/File:Ja-Bonsai.oga"
+              title="About this sound"><img alt="About this sound" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/11px-Loudspeaker.svg.png"
+                width="11" height="11" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/17px-Loudspeaker.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/22px-Loudspeaker.svg.png 2x"
+                data-file-width="20" data-file-height="20"></a>&nbsp;</span><a href="//upload.wikimedia.org/wikipedia/commons/2/25/Ja-Bonsai.oga"
+            class="internal" title="Ja-Bonsai.oga">pronunciation</a></span>&nbsp;<small class="metadata audiolinkinfo"
+          style="cursor:help;">(<a href="/wiki/Wikipedia:Media_help" class="mw-redirect" title="Wikipedia:Media help"><span
+              style="cursor:help;">help</span></a>·<a href="/wiki/File:Ja-Bonsai.oga" title="File:Ja-Bonsai.oga"><span
+              style="cursor:help;">info</span></a>)</small></span>)<sup id="cite_ref-Miniature_Bonsai_1-0" class="reference"><a
+          href="#cite_note-Miniature_Bonsai-1">[1]</a></sup> is a Japanese art form using cultivation techniques to produce
+      small trees in containers that mimic the shape and scale of full size trees. Similar practices exist in other
+      cultures, including the Chinese tradition of <a href="/wiki/Penjing" title="Penjing"><i>penzai</i> or <i>penjing</i></a>
+      from which the art originated, and the miniature living landscapes of Vietnamese <i lang="vi" title="Vietnamese language text"><a
+          href="/wiki/H%C3%B2n_Non_B%E1%BB%99" title="Hòn Non Bộ">Hòn Non Bộ</a></i>. The Japanese tradition dates back
+      over a thousand years.
+    </p>
+
+    <div class="goals-container">
+      <div class="panel">
+        <h3>Weekly Goal</h3>
+        <div class="panel-center">
+          <canvas id="week-chart" height="230"></canvas>
+        </div>
+        <button class="panel-button">Add Progress</button>
+      </div>
+      <div class="panel">
+        <h3>Progress Goal</h3>
+        <div class="panel-center">
+          <p style="font-size: 30px">Run 12 miles in under two hours.</p>
+        </div>
+        <button class="panel-button">Mark Completed</button>
+      </div>
+    </div>
+
+    <!-- Firebase -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
+        // The Firebase SDK is initialized and available here!
         //
         // firebase.auth().onAuthStateChanged(user => { });
         // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
         // firebase.messaging().requestPermission().then(() => { });
         // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
         try {
           let app = firebase.app();
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
           console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
         }
       });
     </script>
+
+    <script src="js/test.js"></script>
   </body>
 </html>
