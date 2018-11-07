@@ -15,11 +15,20 @@
   --border-radius: 5px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* HTML Tags */
 
 h1, h2 {
   font-family: var(--header-font);
   color: var(--dark-color);
+}
+
+h1 {
+  font-size: 40px;
 }
 
 h3 {
@@ -43,13 +52,13 @@ button {
   border-width: thin;
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
-
+  
   color: var(--text-color);
   font-family: var(--body-font);
   font-weight: 300;
   line-height: 1.4em;
   font-size: 14px;
-
+  
   padding: 12px 24px;
   cursor: pointer;
 }
@@ -59,37 +68,52 @@ button:hover {
   color: var(--bg-color);
 }
 
+img {
+  padding: 6px 16px;
+}
+
 /* Classes */
+.content {
+  margin: 30px;
+}
 
 /* Nav Bar */
 ul {
-    list-style-type: none;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: var(--nav-color);
+  margin: 0;
+  
+  display: flex;
+  justify-content:flex-start;
 }
 
 li {
-    float: left;
+  float: left;
 }
 
 li:last-child {
-    border-right: none;
+  border-right: none;
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: var(--dark-color);
+  text-align: center;
+  text-decoration: none;
+  padding: 30px 16px;
+  font-family: var(--body-font);
+  font-size: 20px;
+  text-transform: lowercase;
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+  background-color: white;
+  border-bottom: 3px solid white;
 }
 
 .active {
-  text-decoration-line: underline;
+  border-bottom: 3px solid var(--accent-color);
 }
 
 
@@ -108,9 +132,9 @@ li a:hover:not(.active) {
   border: 1px solid var(--dark-color);
   border-radius: var(--border-radius);
   background-color: transparent;
-
+  
   padding: 20px 20px 30px;
-  margin: 10px;
+  margin-right: 20px;
   text-align: center;
 }
 
