@@ -1,58 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bonsai</title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/styles/master.css">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.5.7/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.5.7/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.5.7/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonsai</title>
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-  </head>
-  <body>
-    <ul class="navbar">
-      <li><img src="assets/logo_wide.svg" alt="logo" height="70"></li>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#communities">Communities</a></li>
-      <li><a href="#resources">Resources</a></li>
-    </ul>
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/5.5.7/firebase-auth.js"></script>
+  <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
+  <script defer src="/__/firebase/5.5.7/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/5.5.7/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
 
-    <div class="content">
-      <h1>My Goals</h1>
-      
-      
-      <div class="goals-container">
-        <div class="panel">
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="assets/styles/master.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="assets/logo_wide.svg" alt="logo" height="70"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Goals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav" style="right: 0; left: auto;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ritam Sarmah
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Hobby <i>(Running)</i></a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>My Goals</h1>
+
+    <div class="container" style="margin: 0">
+      <div class="row">
+        <div class="panel panel-default col-lg-3">
           <h3>Weekly Goal</h3>
+          <br>
           <div class="panel-center">
-            <canvas id="week-chart" height="230"></canvas>
+            <canvas id="week-chart" height="200"></canvas>
           </div>
-          <button class="panel-button">Add Progress</button>
+          <button class="btn btn-default">Add Progress</button>
         </div>
-        <div class="panel">
+        <div class="panel panel-default col-lg-3">
           <h3>Progress Goal</h3>
+          <br>
           <div class="panel-center">
-            <p style="font-size: 24px">Run 12 miles in under two hours.</p>
+            <p style="font-size: 20px">Run 12 miles in under two hours.</p>
           </div>
-          <button class="panel-button">Mark Completed</button>
+          <button class="btn btn-default">Mark Completed</button>
+        </div>
+        <div class="panel panel-default col-lg-3">
+          <h3>Progress Goal</h3>
+          <br>
+          <div class="panel-center">
+            <p style="font-size: 20px">Run 12 miles in under two hours.</p>
+          </div>
+          <button class="btn btn-default">Mark Completed</button>
         </div>
       </div>
     </div>
+    
+    <br><br>
+    <h1>Weekly Progress</h1>
+    <canvas id="progress-chart" width="400" height="200"></canvas>
 
     <!-- Firebase -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         // The Firebase SDK is initialized and available here!
         //
         // firebase.auth().onAuthStateChanged(user => { });
@@ -68,7 +126,7 @@
         }
       });
     </script>
-
     <script src="js/test.js"></script>
-  </body>
+</body>
+
 </html>

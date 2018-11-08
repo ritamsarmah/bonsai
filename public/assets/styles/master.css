@@ -1,4 +1,3 @@
-
 :root {
   /* Colors */
   --bg-color: white;
@@ -29,10 +28,16 @@ h1, h2 {
 
 h1 {
   font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 h3 {
   font-family: var(--body-font);
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: var(--dark-color);
@@ -47,99 +52,51 @@ a {
   color: var(--accent-color);
 }
 
-button {
-  background-color: transparent;
+img {
+  padding: 6px 16px;
+}
+
+.content {
+  margin: 30px 60px;
+}
+
+/* Bootstrap Class Styling */
+
+/* Nav Bar */
+.nav-item {
+  text-transform: lowercase;
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+/* Button */
+.btn {
   border-width: thin;
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
   
   color: var(--text-color);
   font-family: var(--body-font);
-  font-weight: 300;
-  line-height: 1.4em;
-  font-size: 14px;
   
   padding: 12px 24px;
-  cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   background-color: var(--dark-color);
   color: var(--bg-color);
 }
 
-img {
-  padding: 6px 16px;
-}
-
-/* Classes */
-.content {
-  margin: 30px;
-}
-
-/* Nav Bar */
-ul {
-  list-style-type: none;
-  overflow: hidden;
-  background-color: var(--nav-color);
-  margin: 0;
-  
-  display: flex;
-  justify-content:flex-start;
-}
-
-li {
-  float: left;
-}
-
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: var(--dark-color);
-  text-align: center;
-  text-decoration: none;
-  padding: 30px 16px;
-  font-family: var(--body-font);
-  font-size: 20px;
-  text-transform: lowercase;
-}
-
-li a:hover:not(.active) {
-  background-color: white;
-  border-bottom: 3px solid white;
-}
-
-.active {
-  border-bottom: 3px solid var(--accent-color);
-}
-
-
-/* Goals */
-
-.goals-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.panel, .panel-center {
-  width: 250px;
-}
-
+/* Panel */
 .panel {
   border: 1px solid var(--dark-color);
   border-radius: var(--border-radius);
   background-color: transparent;
   
-  padding: 20px 20px 30px;
-  margin-right: 20px;
+  padding: 40px 20px 30px;
+  margin: 20px;
   text-align: center;
-}
-
-.panel-button {
-  width: 80%;
 }
 
 .panel-center {
