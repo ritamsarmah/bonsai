@@ -5,11 +5,11 @@
   --theme-color: #B5EAD5;
   --nav-color: #F1F7ED;
   --accent-color: #FF934F;
-  
+
   /* Fonts */
   --header-font: "PT Serif", serif;
   --body-font: "Raleway", sans-serif;
-  
+
   /* Appearance */
   --border-radius: 5px;
 }
@@ -28,7 +28,7 @@ h1, h2 {
 
 h1 {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h2 {
@@ -63,6 +63,10 @@ img {
 /* Bootstrap Class Styling */
 
 /* Nav Bar */
+.navbar-bonsai {
+  background-color: var(--nav-color);
+}
+
 .nav-item {
   text-transform: lowercase;
   text-align: center;
@@ -76,10 +80,11 @@ img {
   border-width: thin;
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
-  
+  cursor: pointer;
+
   color: var(--text-color);
   font-family: var(--body-font);
-  
+
   padding: 12px 24px;
 }
 
@@ -93,7 +98,7 @@ img {
   border: 1px solid var(--dark-color);
   border-radius: var(--border-radius);
   background-color: transparent;
-  
+
   padding: 40px 20px 30px;
   margin: 20px;
   text-align: center;

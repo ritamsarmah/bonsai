@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bonsai - Homepage</title>
-
+  <title>Bonsai - Goals</title>
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
-
+  
   <!-- Firebase -->
   <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
@@ -16,10 +16,10 @@
   <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
-
+  
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
+  
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -29,43 +29,39 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
+  
   <!-- Custom Styles -->
   <link rel="stylesheet" type="text/css" href="styles/index.css">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
 </head>
 
 <body>
+
   <div id="navbar"></div>
 
   <div class="content">
     <h1>My Goals</h1>
+
     <div class="container" style="margin: 0">
       <div id="goals" class="row">
       </div>
     </div>
 
-    <br><br>
-    <h1>Weekly Progress</h1>
-    <canvas id="progress-chart" width="400" height="200"></canvas>
-  </div>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Custom Scripts -->
-  <script src="scripts/constants.js"></script>
-  <script src="scripts/goal_drawing.js"></script>
-  <script src="scripts/NavComponent.js" type="text/babel"></script>
-  <script src="scripts/home.js"></script>
+    <!-- Custom Scripts -->
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/goal_drawing.js"></script>
+    <script src="scripts/NavComponent.js" type="text/babel"></script>
+    <script src="scripts/goals.js"></script>
 </body>
 
 </html>
