@@ -99,6 +99,18 @@ img {
   text-align: center;
 }
 
+.panelimage {
+  border: 1px solid var(--dark-color);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  
+  padding: 40px 40px 40px;
+  height: 400px;
+  width: 400px;
+  margin: 20px;
+  text-align: center;
+}
+
 .panel-center {
   display: flex;
   flex-direction: column;
@@ -106,4 +118,31 @@ img {
   align-items: center;
   height: 200px;
   padding-bottom: 50px;
+}
+
+/* Centered stuff */
+/*.images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.bulletcenter {
+    list-style: inside;
+    display:table; 
+    margin:0 auto;
+    width: 500px;
+}
+.fontstuff {
+    font-family: var(--body-font);
+    color: var(--dark-color);
 }
