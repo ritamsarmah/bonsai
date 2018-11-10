@@ -54,7 +54,8 @@ function createGoalPanel(goal) {
 
 function createTimeGoalChart(goal) {
     var chart = document.createElement("canvas");
-    chart.height = 200;
+    chart.height = '100%';
+    chart.width = '100%';
 
     var data = [1];
     var backgroundColor = [themeColor];

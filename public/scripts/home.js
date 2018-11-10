@@ -1,5 +1,4 @@
 /* Constants */
-const navUsernameId = "nav-username";
 const goalsDivId = "goals";
 
 document.addEventListener('DOMContentLoaded', function() {

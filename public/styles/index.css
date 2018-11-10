@@ -5,11 +5,11 @@
   --theme-color: #B5EAD5;
   --nav-color: #F1F7ED;
   --accent-color: #FF934F;
-
+  
   /* Fonts */
   --header-font: "PT Serif", serif;
   --body-font: "Raleway", sans-serif;
-
+  
   /* Appearance */
   --border-radius: 5px;
 }
@@ -81,10 +81,11 @@ img {
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
   cursor: pointer;
-
+  
+  background-color: clear;
   color: var(--text-color);
   font-family: var(--body-font);
-
+  
   padding: 12px 24px;
 }
 
@@ -98,7 +99,7 @@ img {
   border: 1px solid var(--dark-color);
   border-radius: var(--border-radius);
   background-color: transparent;
-
+  
   padding: 40px 20px 30px;
   margin: 20px;
   text-align: center;
@@ -110,5 +111,6 @@ img {
   justify-content: center;
   align-items: center;
   height: 200px;
+  width: 100%;
   padding-bottom: 50px;
 }
