@@ -104,7 +104,7 @@ img {
   text-align: center;
 }
 
-.panel-center {
+.panel-content {
   display: flex;
   flex-direction: column;
   justify-content: center;

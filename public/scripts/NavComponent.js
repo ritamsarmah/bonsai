@@ -17,6 +17,9 @@ class NavComponent extends React.Component {
             case 'index.html':
                 navlocation = 'home';
                 break;
+            case 'resources.html':
+                navlocation = 'resources';
+                break;
         }
         this.state = { navlocation: navlocation };
     }
@@ -24,13 +27,13 @@ class NavComponent extends React.Component {
     render() {
         return (
             <nav className="navbar navbar-bonsai navbar-expand-lg navbar-light">
-                <a className="navbar-brand" href="#"><img src="images/logo_wide.svg" alt="logo" height="70"></img></a>
+                <a className="navbar-brand" href="index.html"><img src="images/logo_wide.svg" alt="logo" height="70"></img></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                 </button>
                 
-                <div className="collapse navbar-collapse">
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className={this.state.navlocation === 'home' ? "nav-item active" : "nav-item"}>
                             <a className="nav-link" href="index.html">Home</a>
@@ -42,7 +45,7 @@ class NavComponent extends React.Component {
                             <a className="nav-link" href="#">Community</a>
                         </li>
                         <li className={this.state.navlocation === 'resources' ? "nav-item active" : "nav-item"}>
-                            <a className="nav-link" href="#">Resources</a>
+                            <a className="nav-link" href="resources.html">Resources</a>
                         </li>
                     </ul>
                     
@@ -65,4 +68,6 @@ class NavComponent extends React.Component {
     }
 }
 
-ReactDOM.render(<NavComponent />, document.querySelector(navbarId));
+window.onload = function () {
+    ReactDOM.render(<NavComponent />, document.querySelector(navbarId));
+}

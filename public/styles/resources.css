@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+li {
+    font-family: var(--body-font);
+    color: var(--dark-color);
+}
+
+.panel-image {
+  border: 1px solid var(--dark-color);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  
+  height: 400px;
+  width: 400px;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.bullet-center {
+    list-style: inside;
+    display:table; 
+    margin:0 auto;
+    width: 500px;
+}

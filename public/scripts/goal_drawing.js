@@ -10,7 +10,7 @@ function createGoalPanel(goal) {
     "btn btn-default".split(' ').forEach(cl => addButton.classList.add(cl));
 
     var panelContent = document.createElement("div");
-    panelContent.classList.add("panel-center");
+    panelContent.classList.add("panel-content");
 
     switch (goal.type) {
         case "task":
