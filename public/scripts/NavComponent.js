@@ -33,7 +33,7 @@ class NavComponent extends React.Component {
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className={this.state.navlocation === 'home' ? "nav-item active" : "nav-item"}>
@@ -49,12 +49,11 @@ class NavComponent extends React.Component {
                             <a className="nav-link" href="resources.html">Resources</a>
                         </li>
                     </ul>
-
+                    
                     <ul className="navbar-nav" style={{right: 0, left: 'auto'}}>
                         <li className="nav-item dropdown">
                             <a id="nav-username" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                {this.props.username}
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a className="dropdown-item" href="#">Hobby <i>(Running)</i></a>
@@ -70,4 +69,4 @@ class NavComponent extends React.Component {
     }
 }
 
-ReactDOM.render(<NavComponent username="ritam sarmah"/>, document.querySelector(navbarId));
+ReactDOM.render(<NavComponent />, document.querySelector(navbarId));
