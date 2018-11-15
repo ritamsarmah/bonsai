@@ -1,3 +1,6 @@
+/* Constants */
+const goalsDivId = "goals";
+
 document.addEventListener('DOMContentLoaded', function () {
 
   // TODO: Use actual user data

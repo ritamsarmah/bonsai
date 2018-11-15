@@ -15,12 +15,11 @@ class NavComponent extends React.Component {
             case 'update-goal.html':
                 navlocation = 'goals';
                 break;
-            case 'index.html':
-                navlocation = 'home';
-                break;
             case 'resources.html':
                 navlocation = 'resources';
                 break;
+            default:
+                navlocation = 'home';
         }
         this.state = { navlocation: navlocation };
     }

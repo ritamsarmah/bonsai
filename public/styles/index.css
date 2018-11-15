@@ -98,7 +98,6 @@ img {
 }
 
 .nav-item {
-  text-transform: lowercase;
   text-align: center;
   font-family: var(--body-font);
   font-size: 20px;
