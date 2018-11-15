@@ -1,0 +1,152 @@
+:root {
+  /* Colors */
+  --bg-color: white;
+  --dark-color: #373737;
+  --theme-color: #B5EAD5;
+  --nav-color: #F1F7ED;
+  --accent-color: #FF934F;
+  
+  /* Fonts */
+  --header-font: "PT Serif", serif;
+  --body-font: "Raleway", sans-serif;
+  
+  /* Appearance */
+  --border-radius: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML Tags */
+
+h1, h2 {
+  font-family: var(--header-font);
+  color: var(--dark-color);
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-family: var(--body-font);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--dark-color);
+}
+
+p {
+  font-family: var(--body-font);
+  color: var(--dark-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+img {
+  padding: 6px 16px;
+}
+
+.content {
+  margin: 30px 60px;
+}
+
+.row {
+  margin: 0px 0px;
+  text-align: center;
+}
+
+.btn-group button {
+/*    background-color: #4CAF50; /* Green background */
+/*    border: 1px solid green; /* Green border */
+/*    color: white; /* White text */
+/*    padding: 10px 24px; /* Some padding */
+/*    cursor: pointer; /* Pointer/hand icon */
+/*    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #3e8e41;
+}
+
+/* Bootstrap Class Styling */
+
+/* Nav Bar */
+.navbar-bonsai {
+  background-color: var(--nav-color);
+}
+
+.nav-item {
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+/* Button */
+.btn {
+  border-width: thin;
+  border-color: var(--dark-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  
+  background-color: clear;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  
+  padding: 12px 24px;
+}
+
+.btn:hover {
+  background-color: var(--dark-color);
+  color: var(--bg-color);
+}
+
+
+/* Panel */
+.panel {
+  border: 1px solid var(--dark-color);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  
+  padding: 40px 20px 30px;
+  margin: 20px;
+  text-align: center;
+}
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+/*Dropdown carat*/
+.caret.caret-up {
+    border-top-width: 0;
+    border-bottom: 4px solid #fff;
+}

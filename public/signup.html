@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonsai - Homepage</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
+
+    <!-- Firebase -->
+    <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.7/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+</head>
+
+<body style="background-color:#F1F7ED;">
+    <div class="content">
+        <h1 style="text-align: center; font-size: 40px">Select a Hobby</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl">
+                    <div class="container">
+                        <br><br>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownHobby1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Indoor
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">3D printing</button>
+                                <button class="dropdown-item" type="button">Acrobatics</button>
+                                <button class="dropdown-item" type="button">Animation</button>
+                                <button class="dropdown-item" type="button">Aquascaping</button>
+                                <button class="dropdown-item" type="button">Baking</button>
+                                <button class="dropdown-item" type="button">Beatboxing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl">
+                    <div class="container">
+                        <br><br>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Outdoor
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Air sports</button>
+                                <button class="dropdown-item" type="button">Archery</button>
+                                <button class="dropdown-item" type="button">Astronomy</button>
+                                <button class="dropdown-item" type="button">Baseball</button>
+                                <button class="dropdown-item" type="button">Basketball</button>
+                                <button class="dropdown-item" type="button">Beekeeping</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl">
+                    <div class="container">
+                        <br><br>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Collecting
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Action Figures</button>
+                                <button class="dropdown-item" type="button">Antiquities</button>
+                                <button class="dropdown-item" type="button">Art</button>
+                                <button class="dropdown-item" type="button">Books</button>
+                                <button class="dropdown-item" type="button">Cards</button>
+                                <button class="dropdown-item" type="button">Coins</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl">
+                    <div class="container">
+                        <br><br>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Competitive
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Airsoft</button>
+                                <button class="dropdown-item" type="button">Archery</button>
+                                <button class="dropdown-item" type="button">Astrology</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-0">
+
+                </div>
+                <div class="col-xl">
+                    <div class="container">
+                        <br><br>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Observational
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Aircraft spotting</button>
+                                <button class="dropdown-item" type="button">Birdwatching</button>
+                                <button class="dropdown-item" type="button">Fishwatching</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <br><br>
+
+        <h1 style="text-align: center; font-size: 40px">What is your skill level?</h1>
+        <br><br>
+
+        <div class="container">
+            <div class="row">
+                <div style="text-align: center;" class="col-xl">
+                    <button class="btn btn-default">Beginner</button>
+                </div>
+                <div style="text-align: center;" class="col-xl">
+                    <button class="btn btn-default">Intermediate</button>
+                </div>
+                <div style="text-align: center;" class="col-xl">
+                    <button class="btn btn-default">Advanced</button>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <div style="text-align: center;" class="col-xl">
+            <button class="btn btn-default" onclick="location.href='index.html';">Continue >></button>
+        </div>
+
+        <script>
+            $('.dropdown-toggle').dropdown();
+        </script>
+</body>
+
+</html>
