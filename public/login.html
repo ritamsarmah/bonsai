@@ -20,6 +20,23 @@
 
     <link rel="stylesheet" href="styles/bootstrap-social.css">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB0VZP8iZj5s-3HY9lTa_xcsZHcJL3m9Zg",
+        authDomain: "bonsai-a18e2.firebaseapp.com",
+        databaseURL: "https://bonsai-a18e2.firebaseio.com",
+        projectId: "bonsai-a18e2",
+        storageBucket: "bonsai-a18e2.appspot.com",
+        messagingSenderId: "35665489156"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <title>Bonsai</title>
 </head>
@@ -37,7 +54,7 @@
             width: 300px;">
     </div>
     <br>
-    <a style="width: 250px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-social btn-google" onclick="function ree(){     
+    <a style="width: 250px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-social btn-google" onclick="function doLogin(){     
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,7 +71,7 @@
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-        });};ree()">
+        });};doLogin()">
         <span class="fa fa-google" style="color: white;"></span>
         <div style="text-align: center; color: white">Sign in with Google</div>
     </a>
