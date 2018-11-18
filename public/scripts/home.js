@@ -1,12 +1,28 @@
 /* Constants */
 const goalsDivId = "goals";
 
+var ref = null;
+
 document.addEventListener('DOMContentLoaded', function() {
 
-  // TODO: Use actual user data
-  var user = true;// firebase.auth().currentUser;
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      ref = firebase.database.ref('users/' + user.uid);
+      ref.once('value', function (snapshot) {
+        
+      });
+    }
+  });
+  // console.log(user);
 
-  // var database = firebase.database().ref('users');
+  // let userId = "devtest";
+  // var ref = firebase.database().ref('users/' + userId);
+
+  // console.log("hello");
+  // ref.once('value', function (snapshot) {
+  //   console.log("jioj");
+  //   console.log(snapshot);
+  // });
 
   createGoalPanel({
     title: "Weekly Goal",
@@ -32,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     goal: 20,
     units: "min",
     key: "549812"
-  })
+  });
 });
 
 

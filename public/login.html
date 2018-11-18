@@ -4,6 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonsai</title>
+
+    <!-- Firebase -->
+    <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
+    <script defer src="/__/firebase/5.5.7/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -15,34 +25,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="styles/bootstrap-social.css">
+
     <!-- Font Awesome -->
     <link href="styles/font-awesome.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles/bootstrap-social.css">
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyB0VZP8iZj5s-3HY9lTa_xcsZHcJL3m9Zg",
-        authDomain: "bonsai-a18e2.firebaseapp.com",
-        databaseURL: "https://bonsai-a18e2.firebaseio.com",
-        projectId: "bonsai-a18e2",
-        storageBucket: "bonsai-a18e2.appspot.com",
-        messagingSenderId: "35665489156"
-      };
-      firebase.initializeApp(config);
-    </script>
-
-    
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
-    <title>Bonsai</title>
 </head>
-
-
-
 
 <body style="background-color:#F1F7ED;">
     <br> <br> <br> <br> <br>
@@ -54,27 +41,12 @@
             width: 300px;">
     </div>
     <br>
-    <a style="width: 250px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-social btn-google" onclick="function doLogin(){     
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        });};doLogin()">
+    <a style="width: 250px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-social btn-google" onclick="login()">
         <span class="fa fa-google" style="color: white;"></span>
         <div style="text-align: center; color: white">Sign in with Google</div>
     </a>
+
+    <script src="scripts/login.js"></script>
 </body>
 
 </html>

@@ -1,36 +1,28 @@
 /* Constants */
 const goalsDivId = "goals";
 
+var creationTipHidden = false;
+
 document.addEventListener('DOMContentLoaded', function () {
 
-  // TODO: Use actual user data
-  var user = true;// firebase.auth().currentUser;
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
 
-  // var database = firebase.database().ref('users');
+      var ref = firebase.database().ref('users/' + user.uid + '/goals');
 
-  createGoalPanel({
-    title: "Weekly Goal",
-    type: "time",
-    progress: 7,
-    goal: 10,
-    units: "hrs",
-    key: "818703"
+      ref.on('child_added', function (data) {
+        if (!creationTipHidden) {
+          creationTipHidden = true
+          document.getElementById("creationTip").style.display = "none";
+        }
+        createGoalPanel(data.key, data.val());
+      });
+    }
   });
-
-  createGoalPanel({
-    title: "Task Goal",
-    type: "task",
-    task: "Run 12 miles in under 2 hours",
-    completed: false,
-    key: "691823"
-  });
-
-  createGoalPanel({
-    title: "Daily Goal",
-    type: "time",
-    progress: 20,
-    goal: 20,
-    units: "min",
-    key: "549812"
-  })
 });
+
+function deleteGoal(key) {
+  var user = firebase.auth().currentUser;
+  var ref = firebase.database().ref('users/' + user.uid + '/goals');
+  ref.child(key).remove();
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonsai - New Goal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
+
+    <!-- Firebase -->
+    <script defer src="/__/firebase/5.5.7/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.7/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.7/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="content">
+        <h1>New Goal</h1>
+        <br>
+        <form id="newGoalForm" method="post">
+            <p>Title</p>
+            <input type="text" class="form-control" id="goalTitle" value="">
+            <br>
+            <p>Type</p>
+            <label class="radio-inline"><input id="timeRadio" type="radio" name="optradio" onclick="showTimeGoalOptions()">&nbsp;Time</label>
+            &emsp;
+            <label class="radio-inline"><input id="taskRadio" type="radio" name="optradio" onclick="showTaskGoalOptions()">&nbsp;Task</label>
+            <br><br>
+
+            <div id="timeGoal" style="display:none">
+                <p>Objective</p>
+                <input type="number" min="1" max="999" class="form-control" id="goalTotal">
+                <br>
+                <p>Units</p>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="unitsDropdownTitle">
+                        Hours
+                    </button>
+                    <div id="unitsDropdown" class="dropdown-menu">
+                        <button class="dropdown-item" type="button">Months</button>
+                        <button class="dropdown-item" type="button">Weeks</button>
+                        <button class="dropdown-item" type="button">Days</button>
+                        <button class="dropdown-item" type="button">Hours</button>
+                        <button class="dropdown-item" type="button">Minutes</button>
+                        <button class="dropdown-item" type="button">Seconds</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="taskGoal" style="display:none">
+                <p>Description</p>
+                <input type="text" class="form-control" id="goalDescription">
+            </div>
+            <br><br>
+            <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='index.html';">
+            &nbsp;
+            <input class="btn btn-default" type="button" id="saveButton" value="Save" onclick="createGoal()" data-loading-text="Creating Goal" disabled>
+        </form>
+        
+    </div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/NavComponent.js" type="text/babel"></script>
+    <script src="scripts/create-goal.js"></script>
+</body>
+
+</html>

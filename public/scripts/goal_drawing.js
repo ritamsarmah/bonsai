@@ -1,4 +1,4 @@
-function createGoalPanel(goal) {
+function createGoalPanel(key, goal) {
     var panel = document.createElement("div");
     "panel panel-default col-lg-3".split(' ').forEach(cl => panel.classList.add(cl));
 
@@ -9,13 +9,33 @@ function createGoalPanel(goal) {
     var addButton = document.createElement("button");
     "btn btn-default".split(' ').forEach(cl => addButton.classList.add(cl));
 
+    var deleteButton = document.createElement("button");
+    "btn".split(' ').forEach(cl => deleteButton.classList.add(cl));
+    deleteButton.innerText = "✕";
+
+    deleteButton.style.position = "absolute";
+    deleteButton.style.width = "40px";
+    deleteButton.style.height = "40px";
+    deleteButton.style.top = 0;
+    deleteButton.style.right = 0;
+    deleteButton.onclick = function () {
+        var returnValue = confirm("Are you sure you want to permanently delete \"" + goal.title + "\"?");
+        if (returnValue) {
+            var user = firebase.auth().currentUser;
+            var ref = firebase.database().ref('users/' + user.uid + '/goals');
+            ref.child(key).remove(function () {
+                location.reload();
+            });
+        }
+    }
+
     var panelContent = document.createElement("div");
     panelContent.classList.add("panel-content");
 
     switch (goal.type) {
         case "task":
             var taskText = document.createElement("p");
-            taskText.innerHTML = goal.task;
+            taskText.innerHTML = goal.description;
             taskText.style.fontSize = "20px";
             panelContent.appendChild(taskText);
 
@@ -23,28 +43,30 @@ function createGoalPanel(goal) {
                 addButton.innerHTML = "Completed";
             } else {
                 addButton.innerHTML = "Mark Completed";
-                addButton.onclick = function () {
-                    window.location.href = "update-goal.html#" + goal.key;
-                }
+                // TODO: Change to complete and update Firebase
+                // addButton.onclick = function () {
+                //     window.location.href = "update-goal.html#" + key + "|" + goal.title;
+                // }
             }
             break;
         case "time":
             var chart = createTimeGoalChart(goal);
             panelContent.appendChild(chart);
 
-            if (goal.progress === goal.goal) {
-                addButton.innerHTML = "🔥 Goal Complete";
-                addButton.classList.add("disabled")
+            if (goal.progress >= goal.total) {
+                addButton = document.createElement("p");
+                addButton.innerHTML = "Goal Complete!";
             } else {
                 addButton.innerHTML = "Add Progress";
             }
             addButton.onclick = function () {
-                window.location.href = "update-goal.html#" + goal.key;
+                window.location.href = "update-goal.html#" + key + "|" + goal.title;
             }
             break;
     }
 
     panel.appendChild(document.createElement("br"));
+    panel.appendChild(deleteButton);
     panel.appendChild(panelContent);
     panel.appendChild(addButton);
 
@@ -59,9 +81,9 @@ function createTimeGoalChart(goal) {
 
     var data = [1];
     var backgroundColor = [themeColor];
-    if (goal.progress < goal.goal) {
-        data = [goal.progress, goal.goal - goal.progress]
-        backgroundColor.push('white');
+    if (goal.progress < goal.total) {
+        data = [goal.progress, goal.total - goal.progress]
+        backgroundColor.push('#e5e3e3');
     }
 
     var context = chart.getContext('2d');
@@ -77,13 +99,13 @@ function createTimeGoalChart(goal) {
         options: {
             elements: {
                 center: {
-                    text: goal.progress + '/' + goal.goal + ' ' + goal.units,
+                    text: goal.progress + '/' + goal.total + ' ' + goal.units,
                     color: darkColor,
                     fontStyle: 'Raleway',
                     sidePadding: 30 // percentage
                 }
             },
-            cutoutPercentage: 80,
+            cutoutPercentage: 90,
             hover: { mode: null },
             tooltips: {
                 enabled: false
