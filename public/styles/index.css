@@ -39,7 +39,7 @@ h3 {
   font-family: var(--body-font);
   font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--dark-color);
 }
 
@@ -76,7 +76,7 @@ img {
   text-align: center;
   font-family: var(--body-font);
   font-size: 20px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 /* Button */

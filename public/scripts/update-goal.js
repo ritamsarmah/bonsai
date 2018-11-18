@@ -36,7 +36,9 @@ function updateGoal() {
     var ref = firebase.database().ref('users/' + user.uid + '/goals/' + data[0]);
 
     var update = document.getElementById("progressInput").value;
-    var total = parseInt(goal.progress) + parseInt(update);
+    var total = Number.parseFloat(goal.progress) + Number.parseFloat(update);
+    total = Math.max(0, total);
+
     ref.update({ progress: total }, function () {
         if (total >= goal.total) {
             location.href = "streak.html";

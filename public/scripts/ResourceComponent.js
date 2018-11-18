@@ -42,7 +42,7 @@ class ResourceComponent extends React.Component {
     render() {
         return (
             <div>
-                {/* <h3>{this.props.resource.name}</h3> */}
+                <h3>{this.props.resource.name}</h3>
                 {this.props.resource.description.forEach((item) =>
                     item)}
             </div>

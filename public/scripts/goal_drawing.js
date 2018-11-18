@@ -6,8 +6,8 @@ function createGoalPanel(key, goal) {
     heading.innerHTML = goal.title;
     panel.appendChild(heading);
 
-    var addButton = document.createElement("button");
-    "btn btn-default".split(' ').forEach(cl => addButton.classList.add(cl));
+    var actionButton = document.createElement("button");
+    "btn btn-default".split(' ').forEach(cl => actionButton.classList.add(cl));
 
     var deleteButton = document.createElement("button");
     "btn".split(' ').forEach(cl => deleteButton.classList.add(cl));
@@ -36,17 +36,23 @@ function createGoalPanel(key, goal) {
         case "task":
             var taskText = document.createElement("p");
             taskText.innerHTML = goal.description;
-            taskText.style.fontSize = "20px";
+            taskText.style.fontSize = "24px";
             panelContent.appendChild(taskText);
 
             if (goal.completed) {
-                addButton.innerHTML = "Completed";
+                setButtonCompleted(actionButton);
+                actionButton.style.border = "none";
             } else {
-                addButton.innerHTML = "Mark Completed";
-                // TODO: Change to complete and update Firebase
-                // addButton.onclick = function () {
-                //     window.location.href = "update-goal.html#" + key + "|" + goal.title;
-                // }
+                actionButton.innerHTML = "Mark Completed";
+                actionButton.onclick = function () {
+                    if (actionButton.innerHTML === "Mark Completed") {
+                        setButtonCompleted(actionButton);
+                        setTaskGoal(key, actionButton);
+                    } else {
+                        actionButton.innerHTML = "Mark Completed";
+                        setTaskGoal(key, actionButton, false);
+                    }
+                }
             }
             break;
         case "time":
@@ -54,13 +60,13 @@ function createGoalPanel(key, goal) {
             panelContent.appendChild(chart);
 
             if (goal.progress >= goal.total) {
-                addButton = document.createElement("p");
-                addButton.innerHTML = "Goal Complete!";
+                setButtonCompleted(actionButton);
+                actionButton.style.border = "none";
             } else {
-                addButton.innerHTML = "Add Progress";
-            }
-            addButton.onclick = function () {
-                window.location.href = "update-goal.html#" + key + "|" + goal.title;
+                actionButton.innerHTML = "Add Progress";
+                actionButton.onclick = function () {
+                    window.location.href = "update-goal.html#" + key + "|" + goal.title;
+                }
             }
             break;
     }
@@ -68,10 +74,19 @@ function createGoalPanel(key, goal) {
     panel.appendChild(document.createElement("br"));
     panel.appendChild(deleteButton);
     panel.appendChild(panelContent);
-    panel.appendChild(addButton);
+    panel.appendChild(actionButton);
 
     var goalsDiv = document.getElementById(goalsDivId);
     goalsDiv.appendChild(panel);
+}
+
+function setTaskGoal(key, button, completed = true) {
+    var user = firebase.auth().currentUser;
+    var ref = firebase.database().ref('users/' + user.uid + '/goals/' + key);
+
+    ref.update({ completed: completed }, function () {
+        button.disabled = false;
+    });
 }
 
 function createTimeGoalChart(goal) {
@@ -114,6 +129,11 @@ function createTimeGoalChart(goal) {
     });
 
     return chart;
+}
+
+function setButtonCompleted(button) {
+    button.innerHTML = '<i class="fas fa-check"></i>&nbsp;&nbsp;Completed';
+    button.disabled = true;
 }
 
 Chart.pluginService.register({
