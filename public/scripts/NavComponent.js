@@ -80,7 +80,10 @@ class NavComponent extends React.Component {
 }
 
 function logout() {
-    // TODO: Logout User Via Firebase
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
     location.href = "login.html";
 }
 
