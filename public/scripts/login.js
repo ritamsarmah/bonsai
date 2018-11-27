@@ -6,6 +6,14 @@ function login() {
         // The signed-in user info.
         var user = result.user;
         // ...
+        if(result.additionalUserInfo.isNewUser && user)
+        {
+            window.location = '/signup.html'                                                                                                                
+        }
+        else if(user)
+        {                                                                                                                 
+            window.location = '/index.html'  
+        }
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
