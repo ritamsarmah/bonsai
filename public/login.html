@@ -36,7 +36,6 @@
       firebase.initializeApp(config);
     </script>
 
-    
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
     <title>Bonsai</title>
 </head>
@@ -62,6 +61,11 @@
         // The signed-in user info.
         var user = result.user;
         // ...
+        if(user)
+        {
+            window.location = '/signup.html'                                                                                                                
+        }
+                                                                                                                       
         }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
