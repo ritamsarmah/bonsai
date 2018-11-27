@@ -8,11 +8,11 @@ function login() {
         // ...
         if(result.additionalUserInfo.isNewUser && user)
         {
-            window.location = '/signup.html'                                                                                                                
+            location.href = '/signup.html'                                                                                                                
         }
         else if(user)
         {                                                                                                                 
-            window.location = '/index.html'  
+            location.href = '/index.html'  
         }
     }).catch(function (error) {
         // Handle Errors here.
