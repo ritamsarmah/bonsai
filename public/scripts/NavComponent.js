@@ -33,6 +33,9 @@ class NavComponent extends React.Component {
                 ref.once('value', function (data) {
                     document.getElementById("hobbyText").innerHTML = data.val().hobby;
                 });
+            } else {
+                // Force to login screen
+                location.href = "login.html";
             }
         });
     }
@@ -67,9 +70,8 @@ class NavComponent extends React.Component {
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <div className="dropdown-item disabled">Hobby (<i id="hobbyText"></i>)</div>
-                                <a className="dropdown-item" href="#">Settings</a>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" onClick={logout}>Logout</a>
+                                <a className="dropdown-item" onClick={logout} href="login.html">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -80,11 +82,12 @@ class NavComponent extends React.Component {
 }
 
 function logout() {
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    location.href = "login.html";
+    firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+        location.href = "login.html";
+    }).catch(function (error) {
+        alert(error);
+    });
 }
 
 ReactDOM.render(<NavComponent />, document.querySelector(navbarId));
