@@ -2,6 +2,7 @@
 
 const resourcesId = '#resources';
 
+var hobby;
 var resourceData;
 
 class ResourceComponent extends React.Component {
@@ -37,7 +38,7 @@ class ResourceComponent extends React.Component {
 function ResourceList() {
     return (
         <div>
-            <h1 id="title"></h1>
+            <h1>{hobby} Starter Pack</h1>
             <br></br>
             <br></br>
             {Object.values(resourceData).map((r) => <ResourceComponent resource={r} />)}
@@ -51,7 +52,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var ref = firebase.database().ref('users/' + user.uid);
 
         ref.once('value', function (data) {
-            var hobby = data.val().hobby;
+            hobby = data.val().hobby;
             var hobbyRef = firebase.database().ref('hobbies/' + hobby + '/resources/starter-pack');
             hobbyRef.once('value', function (data) {
                 resourceData = data.val();
