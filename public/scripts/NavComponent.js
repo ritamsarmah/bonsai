@@ -58,7 +58,12 @@ class NavComponent extends React.Component {
                                 <a className="dropdown-item" href="#">Hobby <i>(Running)</i></a>
                                 <a className="dropdown-item" href="#">Settings</a>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Logout</a>
+                                <a className="dropdown-item" href="#" onclick="function doLogout(){
+                                    firebase.auth().signOut().then(function() {
+                                      // Sign-out successful.
+                                    }).catch(function(error) {
+                                      // An error happened.
+                                    });};doLogout()">Logout</a>
                             </div>
                         </li>
                     </ul>
