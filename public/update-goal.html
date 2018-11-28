@@ -42,21 +42,23 @@
   <div id="navbar"></div>
 
   <div class="content">
-    <h1>Add progress to <strong>Weekly Goal</strong> for</h1>
-    <h1><strong>Friday, October 26</strong></h1>
-
-    <form class="" action="index.html" method="post">
-      <p>Time</p>
-      <input type="text" name="" value="">
-      <br><br><br>
-      <p>Notes</p>
-      <input type="text" name="" value="">
-      <br><br><br>
+    <h1>Add progress to <strong id="goalTitle">—</strong> for</h1>
+    <h1><strong id="dateTitle"></strong></h1>
+    <br>
+    <form class="col-lg-4" id="updateGoalForm" method="POST" style="padding:0">
+      <p>Progress (Time)</p>
+        <div class="input-group mb-3">
+          <input id="progressInput" type="number" min=1 class="form-control">
+          <div class="input-group-append">
+            <span class="input-group-text" id="progressAddOn">--</span>
+          </div>
+        </div>
+      <br>
       <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='index.html';">
       &nbsp;
-      <input class="btn btn-default" type="button" value="Save" onclick="location.href='streak.html';">
+      <input class="btn btn-default" type="button" id="saveButton" value="Save" onclick="updateGoal()" data-loading-text="Updating Goal"
+        disabled>
     </form>
-  </div>
 
   <!-- Load React. -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->

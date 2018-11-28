@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bonsai - Goals</title>
+    <title>Bonsai - New Goal</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i" rel="stylesheet">
@@ -39,22 +39,52 @@
 </head>
 
 <body>
-
     <div id="navbar"></div>
 
     <div class="content">
-        <h1>My Goals &nbsp;<a href="/create-goal.html" class="btn btn-default btn-circle"><i class="fa fa-plus"></i></a></h1>
+        <h1>New Goal</h1>
+        <br>
+        <form id="newGoalForm" method="post">
+            <p>Title</p>
+            <input type="text" class="form-control" id="goalTitle" value="">
+            <br>
+            <p>Type</p>
+            <label class="radio-inline"><input id="timeRadio" type="radio" name="optradio" onclick="showTimeGoalOptions()">&nbsp;Time</label>
+            &emsp;
+            <label class="radio-inline"><input id="taskRadio" type="radio" name="optradio" onclick="showTaskGoalOptions()">&nbsp;Task</label>
 
-        <div class="container" style="margin: 0; padding: 0">
-            <div id="goals" class="row">
-                <div id="creationTip">
-                    <br>
-                    <div style="margin: 0" class="alert alert-secondary" role="alert">
-                        Click the '+' button to add a new goal!
+            <div id="timeGoal" style="display:none">
+                <br><br>
+                <p>Objective</p>
+                <input type="number" min="1" max="999" class="form-control" id="goalTotal">
+                <br>
+                <p>Units</p>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="unitsDropdownTitle">
+                        Hours
+                    </button>
+                    <div id="unitsDropdown" class="dropdown-menu">
+                        <button class="dropdown-item" type="button">Months</button>
+                        <button class="dropdown-item" type="button">Weeks</button>
+                        <button class="dropdown-item" type="button">Days</button>
+                        <button class="dropdown-item" type="button">Hours</button>
+                        <button class="dropdown-item" type="button">Minutes</button>
+                        <button class="dropdown-item" type="button">Seconds</button>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div id="taskGoal" style="display:none">
+                <br><br>
+                <p>Description</p>
+                <input type="text" class="form-control" id="goalDescription">
+            </div>
+            <br><br>
+            <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='index.html';">
+            &nbsp;
+            <input class="btn btn-default" type="button" id="saveButton" value="Save" onclick="createGoal()" data-loading-text="Creating Goal" disabled>
+        </form>
+        
     </div>
 
     <!-- Load React. -->
@@ -62,13 +92,13 @@
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
+
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="scripts/constants.js"></script>
-    <script src="scripts/goal_drawing.js"></script>
     <script src="scripts/NavComponent.js" type="text/babel"></script>
-    <script src="scripts/goals.js"></script>
+    <script src="scripts/create-goal.js"></script>
 </body>
 
 </html>

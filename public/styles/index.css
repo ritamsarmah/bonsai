@@ -39,11 +39,11 @@ h3 {
   font-family: var(--body-font);
   font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--dark-color);
 }
 
-p {
+p, label {
   font-family: var(--body-font);
   color: var(--dark-color);
 }
@@ -65,31 +65,6 @@ img {
   text-align: center;
 }
 
-.btn-group button {
-/*    background-color: #4CAF50; /* Green background */
-/*    border: 1px solid green; /* Green border */
-/*    color: white; /* White text */
-/*    padding: 10px 24px; /* Some padding */
-/*    cursor: pointer; /* Pointer/hand icon */
-/*    float: left; /* Float the buttons side by side */
-}
-
-.btn-group button:not(:last-child) {
-    border-right: none; /* Prevent double borders */
-}
-
-/* Clear floats (clearfix hack) */
-.btn-group:after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Add a background color on hover */
-.btn-group button:hover {
-    background-color: #3e8e41;
-}
-
 /* Bootstrap Class Styling */
 
 /* Nav Bar */
@@ -101,15 +76,14 @@ img {
   text-align: center;
   font-family: var(--body-font);
   font-size: 20px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 /* Button */
-.btn {
+.btn-default {
   border-width: thin;
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
-  cursor: pointer;
   
   background-color: clear;
   color: var(--text-color);
@@ -118,9 +92,33 @@ img {
   padding: 12px 24px;
 }
 
-.btn:hover {
+.btn-default:hover:enabled {
   background-color: var(--dark-color);
   color: var(--bg-color);
+  cursor: pointer;
+}
+
+.btn-default:disabled {
+  border-color: gray;
+  color: gray;
+}
+
+.btn-circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border-width: 2px;
+  padding: 0.44em 0.6em;
+  margin-bottom: 7px;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-circle:hover:enabled {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  cursor: pointer;
 }
 
 
@@ -140,13 +138,13 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 230px;
   width: 100%;
   padding-bottom: 50px;
 }
 
 /*Dropdown carat*/
 .caret.caret-up {
-    border-top-width: 0;
-    border-bottom: 4px solid #fff;
+  border-top-width: 0;
+  border-bottom: 4px solid #fff;
 }

@@ -1,4 +1,4 @@
-function createGoalPanel(goal) {
+function createGoalPanel(key, goal) {
     var panel = document.createElement("div");
     "panel panel-default col-lg-3".split(' ').forEach(cl => panel.classList.add(cl));
 
@@ -6,8 +6,28 @@ function createGoalPanel(goal) {
     heading.innerHTML = goal.title;
     panel.appendChild(heading);
 
-    var addButton = document.createElement("button");
-    "btn btn-default".split(' ').forEach(cl => addButton.classList.add(cl));
+    var actionButton = document.createElement("button");
+    "btn btn-default".split(' ').forEach(cl => actionButton.classList.add(cl));
+
+    var deleteButton = document.createElement("button");
+    "btn".split(' ').forEach(cl => deleteButton.classList.add(cl));
+    deleteButton.innerText = "✕";
+
+    deleteButton.style.position = "absolute";
+    deleteButton.style.width = "40px";
+    deleteButton.style.height = "40px";
+    deleteButton.style.top = 0;
+    deleteButton.style.right = 0;
+    deleteButton.onclick = function () {
+        var returnValue = confirm("Are you sure you want to permanently delete \"" + goal.title + "\"?");
+        if (returnValue) {
+            var user = firebase.auth().currentUser;
+            var ref = firebase.database().ref('users/' + user.uid + '/goals');
+            ref.child(key).remove(function () {
+                location.reload();
+            });
+        }
+    }
 
     var panelContent = document.createElement("div");
     panelContent.classList.add("panel-content");
@@ -15,16 +35,23 @@ function createGoalPanel(goal) {
     switch (goal.type) {
         case "task":
             var taskText = document.createElement("p");
-            taskText.innerHTML = goal.task;
-            taskText.style.fontSize = "20px";
+            taskText.innerHTML = goal.description;
+            taskText.style.fontSize = "24px";
             panelContent.appendChild(taskText);
 
             if (goal.completed) {
-                addButton.innerHTML = "Completed";
+                setButtonCompleted(actionButton);
+                actionButton.style.border = "none";
             } else {
-                addButton.innerHTML = "Mark Completed";
-                addButton.onclick = function () {
-                    window.location.href = "update-goal.html#" + goal.key;
+                actionButton.innerHTML = "Mark Completed";
+                actionButton.onclick = function () {
+                    if (actionButton.innerHTML === "Mark Completed") {
+                        setButtonCompleted(actionButton);
+                        setTaskGoal(key, actionButton);
+                    } else {
+                        actionButton.innerHTML = "Mark Completed";
+                        setTaskGoal(key, actionButton, false);
+                    }
                 }
             }
             break;
@@ -32,24 +59,34 @@ function createGoalPanel(goal) {
             var chart = createTimeGoalChart(goal);
             panelContent.appendChild(chart);
 
-            if (goal.progress === goal.goal) {
-                addButton.innerHTML = "🔥 Goal Complete";
-                addButton.classList.add("disabled")
+            if (goal.progress >= goal.total) {
+                setButtonCompleted(actionButton);
+                actionButton.style.border = "none";
             } else {
-                addButton.innerHTML = "Add Progress";
-            }
-            addButton.onclick = function () {
-                window.location.href = "update-goal.html#" + goal.key;
+                actionButton.innerHTML = "Add Progress";
+                actionButton.onclick = function () {
+                    window.location.href = "update-goal.html#" + key + "|" + goal.title;
+                }
             }
             break;
     }
 
     panel.appendChild(document.createElement("br"));
+    panel.appendChild(deleteButton);
     panel.appendChild(panelContent);
-    panel.appendChild(addButton);
+    panel.appendChild(actionButton);
 
     var goalsDiv = document.getElementById(goalsDivId);
     goalsDiv.appendChild(panel);
+}
+
+function setTaskGoal(key, button, completed = true) {
+    var user = firebase.auth().currentUser;
+    var ref = firebase.database().ref('users/' + user.uid + '/goals/' + key);
+
+    ref.update({ completed: completed }, function () {
+        button.disabled = false;
+    });
 }
 
 function createTimeGoalChart(goal) {
@@ -59,9 +96,9 @@ function createTimeGoalChart(goal) {
 
     var data = [1];
     var backgroundColor = [themeColor];
-    if (goal.progress < goal.goal) {
-        data = [goal.progress, goal.goal - goal.progress]
-        backgroundColor.push('white');
+    if (goal.progress < goal.total) {
+        data = [goal.progress, goal.total - goal.progress]
+        backgroundColor.push('#e5e3e3');
     }
 
     var context = chart.getContext('2d');
@@ -77,13 +114,13 @@ function createTimeGoalChart(goal) {
         options: {
             elements: {
                 center: {
-                    text: goal.progress + '/' + goal.goal + ' ' + goal.units,
+                    text: goal.progress + '/' + goal.total + ' ' + goal.units,
                     color: darkColor,
                     fontStyle: 'Raleway',
                     sidePadding: 30 // percentage
                 }
             },
-            cutoutPercentage: 80,
+            cutoutPercentage: 90,
             hover: { mode: null },
             tooltips: {
                 enabled: false
@@ -92,6 +129,11 @@ function createTimeGoalChart(goal) {
     });
 
     return chart;
+}
+
+function setButtonCompleted(button) {
+    button.innerHTML = '<i class="fas fa-check"></i>&nbsp;&nbsp;Completed';
+    button.disabled = true;
 }
 
 Chart.pluginService.register({

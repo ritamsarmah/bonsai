@@ -3,50 +3,31 @@ const goalsDivId = "goals";
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  // TODO: Use actual user data
-  var user = true;// firebase.auth().currentUser;
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      document.getElementById("greeting").innerHTML = getGreeting() + ", " + user.displayName.split(' ')[0] + "!";
+    }
 
-  // var database = firebase.database().ref('users');
+    var ref = firebase.database().ref('users/' + user.uid + '/goals');
 
-  createGoalPanel({
-    title: "Weekly Goal",
-    type: "time",
-    progress: 7,
-    goal: 10,
-    units: "hrs",
-    key: "818703"
+    ref.once('value', function (data) {
+      document.getElementById("goalStatusText").innerText = "You have " + data.numChildren() + (data.numChildren() == 1 ? " goal" : " goals");
+    });
   });
-
-  createGoalPanel({
-    title: "Task Goal",
-    type: "task",
-    task: "Run 12 miles in under 2 hours",
-    completed: false,
-    key: "691823"
-  });
-
-  createGoalPanel({
-    title: "Daily Goal",
-    type: "time",
-    progress: 20,
-    goal: 20,
-    units: "min",
-    key: "549812"
-  })
 });
 
+function getGreeting() {
+  var today = new Date()
+  var curHr = today.getHours()
 
+  var timelyGreeting; 
+  if (curHr < 12) {
+    timelyGreeting = 'Good morning';
+  } else if (curHr < 18) {
+    timelyGreeting = 'Good afternoon';
+  } else {
+    timelyGreeting = 'Good evening';
+  }
 
-// var ctx = document.getElementById("progress-chart").getContext('2d');
-// var myBarChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         datasets: [{
-//             data: [10],
-//             yAxisID: "Hours",
-//             backgroundColor: backgroundColor,
-//         }],
-//     },
-//     options: {
-//     }
-// });
+  return timelyGreeting;
+}
