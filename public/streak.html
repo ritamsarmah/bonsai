@@ -34,8 +34,31 @@
     <link rel="stylesheet" type="text/css" href="styles/index.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+.fa {
+  padding: 15px;
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+</style>
 </head>
 
 <body>
@@ -43,12 +66,15 @@
 
     <div class="content">
         <h1>Congratulations, you've completed your weekly goal!</h1>
-        <br>
+        <br> 
         <form class="" action="index.html" method="post">
-            <input class="btn btn-default" type="button" value="Share" onclick="location.href='https://facebook.com';">
-            &nbsp;
-            <input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
+			<h2>Share:
+            <a href="#" class="fa fa-facebook" onclick="location.href='https://facebook.com';"></a>
+			<a href="#" class="fa fa-twitter" onclick="location.href='https://twitter.com';"></a>
+            &nbsp; 
+			</h2>
         </form>
+		<input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
     </div>
 
     <!-- Load React. -->
