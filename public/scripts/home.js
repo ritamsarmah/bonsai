@@ -13,8 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     ref.once('value', function (data) {
       document.getElementById("goalStatusText").innerText = "You have " + data.numChildren() + (data.numChildren() == 1 ? " goal" : " goals");
     });
+    
+    ref.on('child_added', function (data) {
+      createGoalPanel(data.key, data.val());
+    });
   });
 });
+
+function deleteGoal(key) {
+  var user = firebase.auth().currentUser;
+  var ref = firebase.database().ref('users/' + user.uid + '/goals');
+  ref.child(key).remove();
+}
 
 function getGreeting() {
   var today = new Date()

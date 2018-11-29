@@ -13,7 +13,12 @@ class NavComponent extends React.Component {
         switch (filename) {
             case 'goals.html':
             case 'update-goal.html':
+            case 'create-goal.html':
+            case 'streak.html':
                 navlocation = 'goals';
+                break;
+            case 'community.html':
+                navlocation = 'community';
                 break;
             case 'resources.html':
                 navlocation = 'resources';
@@ -56,7 +61,7 @@ class NavComponent extends React.Component {
                             <a className="nav-link" href="goals.html">Goals</a>
                         </li>
                         <li className={this.state.navlocation === 'community' ? "nav-item active" : "nav-item"}>
-                            <a className="nav-link" href="#">Community</a>
+                            <a className="nav-link" href="community.html">Community</a>
                         </li>
                         <li className={this.state.navlocation === 'resources' ? "nav-item active" : "nav-item"}>
                             <a className="nav-link" href="resources.html">Resources</a>
