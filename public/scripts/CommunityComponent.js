@@ -15,18 +15,6 @@ class CommunityComponent extends React.Component {
                         <img height="100%" width="100%" src={this.props.resource.img}></img>
                     </a>
                 </div>
-                {/* <div style={{ textAlign: "center" }}>
-                    <a href={this.props.resource.link} target="_blank">
-                        <img src="http://www.niftybuttons.com/amazon/amazon-button1.png" alt="Amazon Button"></img>
-                    </a>
-                </div>
-                <ul className="bullet-center">
-                    {Object.values(this.props.resource.description).map((item) => {
-                        return (
-                            <li>{item}</li>
-                        );
-                    })}
-                </ul> */}
                 <br></br>
                 <br></br>
                 <br></br>
