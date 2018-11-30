@@ -9,7 +9,13 @@ $(document).ready(function () {
 
             ref.once('value', function (data) {
                 goal = data.val();
+                var chart = createTimeGoalChart(goal);
+                document.getElementById("goalProgress").appendChild(chart);
             });
         }
     });
 });
+
+function shareTwitter() {
+    location.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent("I just completed my " + goal.title + "!");
+}
