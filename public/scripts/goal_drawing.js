@@ -1,6 +1,10 @@
 function createGoalPanel(key, goal) {
+    var coldiv = document.createElement("div");
+    coldiv.classList.add("col-lg-4")
     var panel = document.createElement("div");
-    "panel panel-default col-lg-3".split(' ').forEach(cl => panel.classList.add(cl));
+    "panel panel-default".split(' ').forEach(cl => panel.classList.add(cl));
+
+    coldiv.appendChild(panel);
 
     var heading = document.createElement("h3");
     heading.innerHTML = goal.title;
@@ -16,8 +20,8 @@ function createGoalPanel(key, goal) {
     deleteButton.style.position = "absolute";
     deleteButton.style.width = "40px";
     deleteButton.style.height = "40px";
-    deleteButton.style.top = 0;
-    deleteButton.style.right = 0;
+    deleteButton.style.top = "1px";
+    deleteButton.style.right = "19px";
     deleteButton.onclick = function () {
         var returnValue = confirm("Are you sure you want to permanently delete \"" + goal.title + "\"?");
         if (returnValue) {
@@ -77,7 +81,7 @@ function createGoalPanel(key, goal) {
     panel.appendChild(actionButton);
 
     var goalsDiv = document.getElementById(goalsDivId);
-    goalsDiv.appendChild(panel);
+    goalsDiv.appendChild(coldiv);
 }
 
 function setTaskGoal(key, button, completed = true) {
