@@ -3,7 +3,11 @@
     <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
     <title>Artboard</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=PT+Serif:700');
+        </style>
+    </defs>
     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-2" transform="translate(50.000000, 28.000000)">
             <g id="Group">
