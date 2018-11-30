@@ -23,6 +23,9 @@ class NavComponent extends React.Component {
             case 'resources.html':
                 navlocation = 'resources';
                 break;
+            case 'community.html':
+                navlocation = 'community';
+                break;
             default:
                 navlocation = 'home';
         }
