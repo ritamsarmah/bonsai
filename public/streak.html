@@ -32,6 +32,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/streak.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
@@ -45,10 +46,13 @@
         <h1 id="goalTitle"></h1>
         <br>
         <form class="" action="index.html" method="post">
-            <input class="btn btn-default" type="button" value="Share" onclick="location.href='https://facebook.com';">
-            &nbsp;
-            <input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
+            <h2>Share:
+                <div href="#" class="fa fa-facebook" onclick="location.href='https://www.facebook.com/sharer/sharer.php?u=https://bonsai-a18e2.firebaseapp.com/&t=I%20just%20completed%20my%20weekly%20goal!';"></div>
+                <div href="#" class="fa fa-twitter" onclick="location.href='https://twitter.com/intent/tweet?text=I%20just%20completed%20my%20weekly%20goal!';"></div>
+                &nbsp;
+            </h2>
         </form>
+        <input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
     </div>
 
     <!-- Load React. -->

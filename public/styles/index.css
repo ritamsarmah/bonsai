@@ -156,6 +156,12 @@ li {
   padding-bottom: 50px;
 }
 
+/*Dropdown*/
+.dropdown-menu {
+   max-height:240px;
+   overflow:auto;
+}
+
 /*Dropdown carat*/
 .caret.caret-up {
   border-top-width: 0;
