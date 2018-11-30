@@ -58,6 +58,7 @@ a {
 
 img {
   padding: 6px 16px;
+  object-fit: contain;
 }
 
 .content {
