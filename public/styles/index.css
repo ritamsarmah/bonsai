@@ -17,7 +17,6 @@
 body {
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 /* HTML Tags */
@@ -30,10 +29,12 @@ h1, h2 {
 h1 {
   font-size: 40px;
   font-weight: normal;
+  text-align: center;
 }
 
 h2 {
   font-size: 20px;
+  text-align: center;
 }
 
 h3 {
@@ -42,6 +43,8 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--dark-color);
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 p, label {
