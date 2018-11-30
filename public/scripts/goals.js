@@ -1,7 +1,7 @@
 /* Constants */
 const goalsDivId = "goals";
 
-var creationTipHidden = false;
+var creationTipHidden = true;
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -10,11 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var ref = firebase.database().ref('users/' + user.uid + '/goals');
 
-      ref.on('child_added', function (data) {
-        if (!creationTipHidden) {
-          creationTipHidden = true
-          document.getElementById("creationTip").style.display = "none";
+      ref.once('value', function (snapshot) {
+        if (!snapshot.exists() && creationTipHidden) {
+          creationTipHidden = false;
+          document.getElementById("creationTip").style.display = "block";
         }
+      });
+
+      ref.on('child_added', function (data) {
         createGoalPanel(data.key, data.val());
       });
     }
