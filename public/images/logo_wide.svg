@@ -4,9 +4,13 @@
     <title>Artboard</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <style type="text/css">
-            @import url('https://fonts.googleapis.com/css?family=PT+Serif:700');
-        </style>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=PT+Serif:700');
+
+        text {
+            font-family: "PT Serif", serif;
+        }
+    </style>
     </defs>
     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-2" transform="translate(50.000000, 28.000000)">
