@@ -18,6 +18,9 @@ class NavComponent extends React.Component {
             case 'resources.html':
                 navlocation = 'resources';
                 break;
+            case 'community.html':
+                navlocation = 'community';
+                break;
             default:
                 navlocation = 'home';
         }
@@ -56,7 +59,7 @@ class NavComponent extends React.Component {
                             <a className="nav-link" href="goals.html">Goals</a>
                         </li>
                         <li className={this.state.navlocation === 'community' ? "nav-item active" : "nav-item"}>
-                            <a className="nav-link" href="#">Community</a>
+                            <a className="nav-link" href="community.html">Community</a>
                         </li>
                         <li className={this.state.navlocation === 'resources' ? "nav-item active" : "nav-item"}>
                             <a className="nav-link" href="resources.html">Resources</a>
