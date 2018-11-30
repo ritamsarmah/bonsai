@@ -79,6 +79,27 @@ img {
   margin-right: 40px;
 }
 
+/* Radio */
+.rad {
+    position: relative;
+    top: 5px;
+    left: -2px;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* Checkbox */
+.chkbox {    
+	position: relative;
+    top: 5px;
+    left: -2px;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
 /* Button */
 .btn-default {
   border-width: thin;
@@ -141,6 +162,12 @@ img {
   height: 230px;
   width: 100%;
   padding-bottom: 50px;
+}
+
+/*Dropdown*/
+.dropdown-menu {
+   max-height:240px;
+   overflow:auto;
 }
 
 /*Dropdown carat*/
