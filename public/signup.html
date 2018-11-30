@@ -44,8 +44,9 @@
 	<div style="text-align: center;">
     <h1>Select a Hobby</h1>
 	<br>
+<!-- Sad
 	<h2>Type:</h2>
-		<div class="dropdown">
+		<div id="newSignup" class="dropdown">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="typeDropdownTitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Indoor
 		  </button>
@@ -60,9 +61,10 @@
 		</div>
 	<br>
 	<h2>Hobby:</h2>
+-->
 		<div class="dropdown">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="hobbyDropdownTitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			3D printing
+			Hobby
 		  </button>
 		  <div id="hobbyDropdown" class="dropdown-menu" aria-labelledby="dropdownMenu2">
 			<button class="dropdown-item" type="button">3D printing</button>
@@ -71,6 +73,37 @@
 			<button class="dropdown-item" type="button">Aquascaping</button>
 			<button class="dropdown-item" type="button">Baking</button>
 			<button class="dropdown-item" type="button">Beatboxing</button>
+			<button class="dropdown-item" type="button">Calligraphy</button>
+			<button class="dropdown-item" type="button">Coffee Roasting</button>
+			<button class="dropdown-item" type="button">Collecting</button>
+			<button class="dropdown-item" type="button">Cooking</button>
+			<button class="dropdown-item" type="button">Cosplaying</button>
+			<button class="dropdown-item" type="button">Dance</button>
+			<button class="dropdown-item" type="button">Drawing</button>
+			<button class="dropdown-item" type="button">Embroidery</button>
+			<button class="dropdown-item" type="button">Fashion</button>
+			<button class="dropdown-item" type="button">Gaming</button>
+			<button class="dropdown-item" type="button">Glassblowing</button>
+			<button class="dropdown-item" type="button">Graphic Design</button>
+			<button class="dropdown-item" type="button">Hydroponics</button>
+			<button class="dropdown-item" type="button">Ice Skating</button>
+			<button class="dropdown-item" type="button">Juggling</button>
+			<button class="dropdown-item" type="button">Knitting</button>
+			<button class="dropdown-item" type="button">Magic</button>
+			<button class="dropdown-item" type="button">Model Building</button>
+			<button class="dropdown-item" type="button">Origami</button>
+			<button class="dropdown-item" type="button">Painting</button>
+			<button class="dropdown-item" type="button">Photography</button>
+			<button class="dropdown-item" type="button">Pottery</button>
+			<button class="dropdown-item" type="button">Quilting</button>
+			<button class="dropdown-item" type="button">Reading</button>
+			<button class="dropdown-item" type="button">Robotics</button>
+			<button class="dropdown-item" type="button">Sculpting</button>
+			<button class="dropdown-item" type="button">Sports</button>
+			<button class="dropdown-item" type="button">Singing</button>
+			<button class="dropdown-item" type="button">Woodworking</button>
+			<button class="dropdown-item" type="button">Writing</button>
+			<button class="dropdown-item" type="button">Yoga</button>
 		  </div>
 		</div>
 
@@ -82,13 +115,13 @@
     <div class="container">
       <div class="row">
         <div style="text-align: center;" class="col-xl">
-          <input class="rad" type="radio" name="skill">Beginner
+          <input id="beginRadio" class="rad" type="radio" name="skill" onclick="skillClk()">Beginner
         </div>
         <div style="text-align: center;" class="col-xl">
-          <input class="rad" type="radio" name="skill">Intermediate
+          <input id="interRadio" class="rad" type="radio" name="skill" onclick="skillClk()">Intermediate
         </div>
         <div style="text-align: center;" class="col-xl">
-          <input class="rad" type="radio" name="skill">Advanced
+          <input id="expertRadio" class="rad" type="radio" name="skill" onclick="skillClk()">Advanced
         </div>
       </div>
     </div>
@@ -97,17 +130,17 @@
     
 	<h1>What role would you like?</h1>
 	<div style="text-align: center;">
-	<h2>(Select up to two)</h2>
+	<h2>(Select at least one)</h2>
 	</div>
 	<br>
 	
     <div class="container">
       <div class="row">
         <div style="text-align: center;" class="col-xl">
-          <input class="rad" type="radio">Mentor
+          <input id="mentorChkbox" class="chkbox" type="checkbox" onclick="roleClk()">Mentor
         </div>
         <div style="text-align: center;" class="col-xl">
-          <input class="rad" type="radio">Mentee
+          <input id="menteeChkbox" class="chkbox" type="checkbox"onclick="roleClk()">Mentee
         </div>
       </div>
     </div>
@@ -115,7 +148,7 @@
 	</div>
   </div>
 	<div style="text-align: center;" class="col-xl">
-		<button class="btn btn-default" onclick="location.href='index.html';">Continue >></button>
+		<input id="continueButton" class="btn btn-default" value="Continue >>" onclick="createUser()" Disabled>
 	</div>
 
 	<!-- Custom Scripts -->
