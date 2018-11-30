@@ -46,7 +46,7 @@
     <h1><strong id="dateTitle"></strong></h1>
     <br>
     <form class="col-lg-6 mx-auto" id="updateGoalForm" method="POST" style="padding:0">
-      <p>Progress (Time)</p>
+      <h3>Progress (Time)</h3>
         <div class="input-group mb-3">
           <input id="progressInput" type="number" min=1 class="form-control">
           <div class="input-group-append">
@@ -54,7 +54,7 @@
           </div>
         </div>
       <br>
-      <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='index.html';">
+      <input class="btn btn-default" type="button" value="Cancel" onclick="window.history.back()">
       &nbsp;
       <input class="btn btn-default" type="button" id="saveButton" value="Save" onclick="updateGoal()" data-loading-text="Updating Goal"
         disabled>
