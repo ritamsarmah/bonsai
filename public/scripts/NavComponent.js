@@ -13,7 +13,12 @@ class NavComponent extends React.Component {
         switch (filename) {
             case 'goals.html':
             case 'update-goal.html':
+            case 'create-goal.html':
+            case 'streak.html':
                 navlocation = 'goals';
+                break;
+            case 'community.html':
+                navlocation = 'community';
                 break;
             case 'resources.html':
                 navlocation = 'resources';

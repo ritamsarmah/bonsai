@@ -42,23 +42,23 @@
     <div id="navbar"></div>
 
     <div class="content">
-        <h1>New Goal</h1>
+        <h1>Create New Goal</h1>
         <br>
-        <form id="newGoalForm" method="post">
-            <p>Title</p>
+        <form class="col-lg-6 mx-auto" id="newGoalForm" method="post" style="padding:0">
+            <h3>Title</h3>
             <input type="text" class="form-control" id="goalTitle" value="">
-            <br>
-            <p>Type</p>
+            <br><br>
+            <h3>Type</h3>
             <label class="radio-inline"><input id="timeRadio" type="radio" name="optradio" onclick="showTimeGoalOptions()">&nbsp;Time</label>
             &emsp;
             <label class="radio-inline"><input id="taskRadio" type="radio" name="optradio" onclick="showTaskGoalOptions()">&nbsp;Task</label>
 
             <div id="timeGoal" style="display:none">
-                <br><br>
-                <p>Objective</p>
+                <br><br><br>
+                <h3>Objective</h3>
                 <input type="number" min="1" max="999" class="form-control" id="goalTotal">
-                <br>
-                <p>Units</p>
+                <br><br>
+                <h3>Units</h3>
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="unitsDropdownTitle">
                         Hours
@@ -75,12 +75,12 @@
             </div>
 
             <div id="taskGoal" style="display:none">
-                <br><br>
-                <p>Description</p>
+                <br><br><br>
+                <h3>Description</h3>
                 <input type="text" class="form-control" id="goalDescription">
             </div>
             <br><br>
-            <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='index.html';">
+            <input class="btn btn-default" type="button" value="Cancel" onclick="location.href='goals.html'">
             &nbsp;
             <input class="btn btn-default" type="button" id="saveButton" value="Save" onclick="createGoal()" data-loading-text="Creating Goal" disabled>
         </form>

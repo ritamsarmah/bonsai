@@ -1,7 +1,7 @@
 
 var data = window.location.hash.substr(1).split("|");
 
-var goal = 
+var goal = null;
 
 document.getElementById("goalTitle").innerText = decodeURIComponent(data[1]);
 document.getElementById("dateTitle").innerText = getDate();
@@ -41,7 +41,7 @@ function updateGoal() {
 
     ref.update({ progress: total }, function () {
         if (total >= goal.total) {
-            location.href = "streak.html";
+            location.href = "streak.html#" + data[0] + "|" + goal.title;
         } else {
             location.href = "goals.html";
         }

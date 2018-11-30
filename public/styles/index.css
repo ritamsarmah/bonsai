@@ -17,6 +17,7 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 /* HTML Tags */
@@ -29,10 +30,12 @@ h1, h2 {
 h1 {
   font-size: 40px;
   font-weight: normal;
+  text-align: center;
 }
 
 h2 {
   font-size: 20px;
+  text-align: center;
 }
 
 h3 {
@@ -41,6 +44,8 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--dark-color);
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 p, label {
@@ -54,6 +59,11 @@ a {
 
 img {
   padding: 6px 16px;
+  object-fit: contain;
+}
+
+li {
+  text-align: left;
 }
 
 .content {
@@ -67,6 +77,10 @@ img {
 
 /* Bootstrap Class Styling */
 
+.goal-container {
+  margin: 0 5%;
+}
+
 /* Nav Bar */
 .navbar-bonsai {
   background-color: var(--nav-color);
@@ -77,27 +91,6 @@ img {
   font-family: var(--body-font);
   font-size: 20px;
   margin-right: 40px;
-}
-
-/* Radio */
-.rad {
-    position: relative;
-    top: 5px;
-    left: -2px;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-/* Checkbox */
-.chkbox {    
-	position: relative;
-    top: 5px;
-    left: -2px;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
 }
 
 /* Button */
@@ -142,7 +135,6 @@ img {
   cursor: pointer;
 }
 
-
 /* Panel */
 .panel {
   border: 1px solid var(--dark-color);
@@ -150,7 +142,7 @@ img {
   background-color: transparent;
   
   padding: 40px 20px 30px;
-  margin: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 

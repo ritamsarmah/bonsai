@@ -32,53 +32,27 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/streak.css">
 
     <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
-.fa {
-  padding: 15px;
-  font-size: 20px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-}
-
-.fa:hover {
-    opacity: 0.7;
-	cursor: pointer;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div id="navbar"></div>
 
     <div class="content">
-        <h1>Congratulations, you've completed your weekly goal!</h1>
-        <br> 
+        <h1 id="goalTitle"></h1>
+        <br>
+        <div id="goalProgress" class="panel-content" style="height: 300px"></div>
         <form class="" action="index.html" method="post">
-			<h2>Share:
             <div href="#" class="fa fa-facebook" onclick="location.href='https://www.facebook.com/sharer/sharer.php?u=https://bonsai-a18e2.firebaseapp.com/&t=I%20just%20completed%20my%20weekly%20goal!';"></div>
-			<div href="#" class="fa fa-twitter" onclick="location.href='https://twitter.com/intent/tweet?text=I%20just%20completed%20my%20weekly%20goal!';"></div>
-            &nbsp; 
-			</h2>
+            <div href="#" class="fa fa-twitter" onclick="shareTwitter()"></div>
         </form>
-		<input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
+        <br>
+        <input class="btn btn-default" type="button" value="Go Home" onclick="location.href='index.html';">
     </div>
+
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
@@ -88,6 +62,7 @@
 
     <!-- Custom Scripts -->
     <script src="scripts/constants.js"></script>
+    <script src="scripts/goal_drawing.js"></script>
     <script src="scripts/NavComponent.js" type="text/babel"></script>
     <script src="scripts/streak.js"></script>
 </body>
