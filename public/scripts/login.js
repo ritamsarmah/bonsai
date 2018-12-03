@@ -16,6 +16,6 @@ function login(providerType) {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        alert("An error occurred while logging in. (Error Code: " + errorCode + ")")
+        console.log("An error occurred while logging in. (Error Code: " + errorCode + ")")
     });
 }

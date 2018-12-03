@@ -71,7 +71,7 @@ class NavComponent extends React.Component {
                         </li>
                     </ul>
 
-                    <ul className="navbar-nav" style={{ right: 0, left: 'auto' }}>
+                    <ul className="navbar-nav">
                         <li className="nav-item dropdown">
                             <a id="nav-username" className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
