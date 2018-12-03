@@ -51,7 +51,7 @@ class NavComponent extends React.Component {
     render() {
         return (
             <nav className="navbar navbar-bonsai navbar-expand-lg navbar-light">
-                <a className="navbar-brand" href="index.html"><img src="images/logo_wide.svg" alt="logo" height="70"></img></a>
+                <a className="navbar-brand" href="index.html"><img src="images/logo_wide.png" alt="logo" height="70"></img></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
