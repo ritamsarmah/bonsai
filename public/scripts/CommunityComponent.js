@@ -10,13 +10,13 @@ class CommunityComponent extends React.Component {
         return (
             <div>
                 <h3>{this.props.resource.name}</h3>
-                <div className="panel panel-image">
-                    <a href={this.props.resource.link} target="_blank">
-                        <img height="100%" width="100%" src={this.props.resource.img}></img>
-                    </a>
+                <div className="col-lg-4 col-md-6">
+                    <div className="panel panel-image">
+                        <a href={this.props.resource.link} target="_blank">
+                            <img height="100%" width="100%" src={this.props.resource.img}></img>
+                        </a>
+                    </div>
                 </div>
-                <br></br>
-                <br></br>
                 <br></br>
                 <br></br>
             </div>
@@ -28,10 +28,12 @@ class CommunityComponent extends React.Component {
 function CommunityList() {
     return (
         <div>
-            <h1>{hobby} Community Forums and Resources</h1>
+            <h1>{hobby} Forums & Communities</h1>
             <br></br>
             <br></br>
-            {Object.values(communityData).map((r) => <CommunityComponent resource={r} />)}
+            <div className="row justify-content-center">
+                {Object.values(communityData).map((r) => <CommunityComponent resource={r} />)}
+            </div>
         </div>
     );
 }
