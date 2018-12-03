@@ -99,7 +99,7 @@ li {
   border-color: var(--dark-color);
   border-radius: var(--border-radius);
   
-  background-color: clear;
+  background-color: white;
   color: var(--text-color);
   font-family: var(--body-font);
   
@@ -115,6 +115,7 @@ li {
 .btn-default:disabled {
   border-color: gray;
   color: gray;
+  background-color: white;
 }
 
 .btn-circle {
@@ -133,6 +134,15 @@ li {
   background-color: var(--accent-color);
   color: var(--bg-color);
   cursor: pointer;
+}
+
+.btn-goal-delete {
+  background-color: white;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 1px;
+  right: 16px;
 }
 
 /* Panel */

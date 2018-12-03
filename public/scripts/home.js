@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
           goalStatus.innerText = "You are tracking 1 goal.";
           break;
         default:
-          goalStatus.innerText = "You have " + data.numChildren() + (data.numChildren() == 1 ? " goal" : " goals");
+          goalStatus.innerText = "You are tracking " + data.numChildren() + " goals.";
       }
     });
     
