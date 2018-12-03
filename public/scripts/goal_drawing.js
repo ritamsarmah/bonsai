@@ -14,14 +14,8 @@ function createGoalPanel(key, goal) {
     "btn btn-default".split(' ').forEach(cl => actionButton.classList.add(cl));
 
     var deleteButton = document.createElement("button");
-    "btn".split(' ').forEach(cl => deleteButton.classList.add(cl));
+    "btn btn-goal-delete shadow-none".split(' ').forEach(cl => deleteButton.classList.add(cl));
     deleteButton.innerText = "✕";
-
-    deleteButton.style.position = "absolute";
-    deleteButton.style.width = "40px";
-    deleteButton.style.height = "40px";
-    deleteButton.style.top = "1px";
-    deleteButton.style.right = "19px";
     deleteButton.onclick = function () {
         var returnValue = confirm("Are you sure you want to permanently delete \"" + goal.title + "\"?");
         if (returnValue) {
