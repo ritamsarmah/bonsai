@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
           goalStatus.innerText = "You aren't tracking any goals at the moment.\nCreate a new goal from the \"Goals\" tab.";
           var image = document.createElement('img');
           image.style.height = "300px";
+          image.style.marginTop = "30px";
           image.src = "images/sticker" + Math.floor(Math.random() * Math.floor(3)) + ".jpg";
-          document.getElementById("goals").appendChild(image);
+          document.getElementById(goalsDivId).appendChild(image);
           break;
         case 1:
           goalStatus.innerText = "You are tracking 1 goal.";
