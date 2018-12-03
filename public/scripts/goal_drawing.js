@@ -1,6 +1,6 @@
 function createGoalPanel(key, goal) {
     var coldiv = document.createElement("div");
-    coldiv.classList.add("col-lg-4");
+    "col-lg-4 col-md-6".split(' ').forEach(cl => coldiv.classList.add(cl));
     var panel = document.createElement("div");
     "panel panel-default".split(' ').forEach(cl => panel.classList.add(cl));
 
