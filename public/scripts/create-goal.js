@@ -17,6 +17,7 @@ var titleInput;
 var totalInput;
 var unitsDropdown;
 var descriptionInput;
+var warning;
 
 var saveButton;
 
@@ -44,6 +45,9 @@ $(document).ready(function () {
     unitsDropdown = document.getElementById(unitsId);
     descriptionInput = document.getElementById(descriptionId);
     saveButton = document.getElementById(saveButtonId);
+    warning = document.getElementById("objectiveHelp");
+
+    document.getElementById("objectiveHelp").style.display = "none";
 
     $('#newGoalForm').on('keyup change paste', ':input', function () {
         if ((!timeRadioButton.checked && !taskRadioButton.checked) || titleInput.value === "") {
@@ -55,8 +59,26 @@ $(document).ready(function () {
         } else {
             saveButton.disabled = false;
         }
+        
+        if (totalInput != "" && totalInput.value < 0) {
+            showObjectiveWarning("Must be a number greater than 0.");
+            saveButton.disabled = true;
+        } else {
+            hideObjectiveWarning();
+        }
     });
 });
+
+function showObjectiveWarning(message) {
+    totalInput.classList.add("is-invalid");
+    warning.innerText = message;
+    warning.style.display = "block";
+}
+
+function hideObjectiveWarning() {
+    totalInput.classList.remove("is-invalid");
+    warning.style.display = "none";
+}
 
 function createGoal() {
     saveButton.value = "Creating Goal...";

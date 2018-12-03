@@ -11,7 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var ref = firebase.database().ref('users/' + user.uid + '/goals');
 
     ref.once('value', function (data) {
-      document.getElementById("goalStatusText").innerText = "You have " + data.numChildren() + (data.numChildren() == 1 ? " goal" : " goals");
+      var goalStatus = document.getElementById('goalStatusText');
+      switch (data.numChildren()) {
+        case 0:
+          goalStatus.innerText = "You aren't tracking any goals at the moment.\nCreate a new goal from the \"Goals\" tab.";
+          var image = document.createElement('img');
+          image.style.height = "300px";
+          image.src = "images/sticker" + Math.floor(Math.random() * Math.floor(3)) + ".jpg";
+          document.getElementById("goals").appendChild(image);
+          break;
+        case 1:
+          goalStatus.innerText = "You are tracking 1 goal.";
+          break;
+        default:
+          goalStatus.innerText = "You have " + data.numChildren() + (data.numChildren() == 1 ? " goal" : " goals");
+      }
     });
     
     ref.on('child_added', function (data) {
